@@ -4,7 +4,7 @@ from typing import Dict
 from src.const import WINDOW_TITLE
 from src.game.food import Food
 from src.game.snake import Snake
-from src.utils.input import get_last_key_pressed, set_last_key_pressed
+from src.utils.input import get_last_key_pressed, is_space_pressed, set_last_key_pressed
 
 WINDOW: tk.Tk = None
 CANVAS: tk.Canvas = None
@@ -39,7 +39,7 @@ def game_loop():
         SCORE += 1
         WINDOW.title(WINDOW_TITLE + str(SCORE))
 
-    WINDOW.after(200, game_loop)
+    WINDOW.after( 50 if is_space_pressed() else 250, game_loop)
     pass
 
 def init_game_entities():

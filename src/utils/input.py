@@ -1,3 +1,4 @@
+import re
 from socket import timeout
 from tkinter import LAST
 import keyboard
@@ -16,6 +17,9 @@ def get_last_key_pressed():
 def set_last_key_pressed(key: str):
     global LAST_KEY_PRESSED
     LAST_KEY_PRESSED = key
+
+def is_space_pressed() -> bool:
+    return keyboard.is_pressed(" ")
 
 def init_hotkeys():
     global keyboard
