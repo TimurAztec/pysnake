@@ -26,9 +26,10 @@ class Food():
         pass
 
     @property
-    def position(self):
+    def position(self) -> List[int]:
         return self._position
 
     def destroy(self):
         self._canvas.delete(self._canvas_id)
+        pass
 

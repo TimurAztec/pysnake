@@ -15,6 +15,7 @@ class Snake():
             }
         ]
         self._direction = [0, 0]
+        pass
 
     def change_direction(self, key: str):
         if key == "left":

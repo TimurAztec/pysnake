@@ -10,13 +10,14 @@ def change_last_key_pressed(key: str):
     LAST_KEY_PRESSED = key
     pass
 
-def get_last_key_pressed():
+def get_last_key_pressed() -> str:
     global LAST_KEY_PRESSED
     return LAST_KEY_PRESSED
 
 def set_last_key_pressed(key: str):
     global LAST_KEY_PRESSED
     LAST_KEY_PRESSED = key
+    pass
 
 def is_space_pressed() -> bool:
     return keyboard.is_pressed(" ")
