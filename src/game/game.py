@@ -1,3 +1,5 @@
+import os
+import sys
 import tkinter as tk
 from playsound import playsound
 from typing import Dict
@@ -28,14 +30,14 @@ def game_loop():
     if get_last_key_pressed():
         ENTITIES["snake"].change_direction(get_last_key_pressed())
     if ENTITIES["snake"].move():
-        playsound("assets/death.mp3", block=True)
+        playsound(os.path.join(sys.path[0], "assets/death.mp3"), block=True)
         init_game_loop(WINDOW, CANVAS)
         return
     if ENTITIES.get("food") and ENTITIES["snake"].collides_with_tile(ENTITIES.get("food").position):
         ENTITIES["snake"].append_piece()
         ENTITIES["food"].destroy()
         ENTITIES["food"] = Food(CANVAS, ENTITIES["snake"])
-        playsound("assets/eat.mp3", block=False)
+        playsound(os.path.join(sys.path[0], "assets/eat.mp3"), block=True if os.name == 'posix' else False)
         SCORE += 1
         WINDOW.title(WINDOW_TITLE + str(SCORE))
 
